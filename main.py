@@ -191,7 +191,22 @@ def question(numero):
 #     db.close()
 #     return template(''' Your score is {{score}} : {{text}}''',score=score, text=text)
 #
-
-
+#
+# @route('/iso21827/maturite/<values>')
+# def maturite(values):
+#     from bottle import response
+#     from json import dumps
+#
+#     values = values.split(",")
+#     if len(values) != 12:
+#         response.content_type = 'application/json'
+#         return dumps({"erreur": "Erreur ! Le nombre de valeur passées dans l'url est incorrect. Veuillez passer 12 valeurs, "
+#                                 + str(len(values))
+#                                 + " passées"})
+#     val1 = max(values[0:3])
+#     val2 = max(values[3:6])
+#     val3 = max(values[6:9])
+#     val4 = max(values[9:12])
+#     total = int(val1) + int(val2) + int(val3) + int(val4)
 
 run(host='localhost', port=8080)
